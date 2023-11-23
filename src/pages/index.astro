@@ -3,20 +3,46 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import "../css/reset.css";
 import "../css/style.scss";
+
+//microCMS呼び出し
+import { getContents } from "../libs/microcms";
+const contents = await getContents({orders: 'date'});
+
 ---
 
 <Layout title="BreedingNote">
   <main>
     <div class="gallery">
-      <h1>Breeding Note </h1>
+      <h1>Breeding Note</h1>
       <h2>by WANDAO</h2>
       <h3>-WANの活動記録-</h3>
       <ul class="cards">
+        {
+          contents.contents.map((content:any) => (
+            <li>
+              <div class="content">
+                <p class="content__date">{content.date.substring(0, 10)}</p>
+                <h2 class="content__title">{content.title}</h2>
+                <img
+                  class="content__sumbneil"
+                  src="assets/image/2.jpg"
+                  alt="アイキャッチ画像"
+                />
+                <p class="content__detail" set:html={content.text}></p>
+              </div>
+            </li>
+          ))
+        }
+
         <li>
           <div class="content">
             <p class="content__date">2023.11.22</p>
             <h2 class="content__title">タイトルタイトルタイトル</h2>
-            <img class="content__sumbneil" src="assets/image/2.jpg" alt="アイキャッチ画像">
+            <img
+              class="content__sumbneil"
+              src="assets/image/2.jpg"
+              alt="アイキャッチ画像"
+            />
             <p class="content__detail">
               簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。
             </p>
@@ -26,17 +52,25 @@ import "../css/style.scss";
           <div class="content">
             <p class="content__date">2023.11.23</p>
             <h2 class="content__title">タイトルを表示</h2>
-            <img class="content__sumbneil" src="assets/image/3.jpg" alt="アイキャッチ画像">
+            <img
+              class="content__sumbneil"
+              src="assets/image/3.jpg"
+              alt="アイキャッチ画像"
+            />
             <p class="content__detail">
               簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。
             </p>
           </div>
         </li>
-         <li>
+        <li>
           <div class="content">
             <p class="content__date">2023.11.24</p>
             <h2 class="content__title">タイトルを表示</h2>
-            <img class="content__sumbneil" src="assets/image/4.jpg" alt="アイキャッチ画像">
+            <img
+              class="content__sumbneil"
+              src="assets/image/4.jpg"
+              alt="アイキャッチ画像"
+            />
             <p class="content__detail">
               簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。
             </p>
@@ -46,7 +80,11 @@ import "../css/style.scss";
           <div class="content">
             <p class="content__date">2023.11.25</p>
             <h2 class="content__title">タイトルを表示</h2>
-            <img class="content__sumbneil" src="assets/image/5.jpg" alt="アイキャッチ画像">
+            <img
+              class="content__sumbneil"
+              src="assets/image/5.jpg"
+              alt="アイキャッチ画像"
+            />
             <p class="content__detail">
               簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。
             </p>
@@ -56,27 +94,17 @@ import "../css/style.scss";
           <div class="content">
             <p class="content__date">2023.11.26</p>
             <h2 class="content__title">タイトルを表示</h2>
-            <img class="content__sumbneil" src="assets/image/6.jpg" alt="アイキャッチ画像">
+            <img
+              class="content__sumbneil"
+              src="assets/image/6.jpg"
+              alt="アイキャッチ画像"
+            />
             <p class="content__detail">
               簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。
             </p>
           </div>
         </li>
-        <li>
-          <div class="content">
-            <p class="content__date">2023.11.26</p>
-            <h2 class="content__title">タイトルを表示</h2>
-            <img class="content__sumbneil" src="assets/image/6.jpg" alt="アイキャッチ画像">
-            <p class="content__detail">
-              簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。簡単なテキストが入ります。
-            </p>
-          </div>
-        </li>
-        <!-- <li>2</li> -->
-        <!-- <li>2</li>
-        <li>2</li>
-        <li>2</li>
-        <li>2</li> -->
+        
         
       </ul>
       <div class="actions">
@@ -90,8 +118,8 @@ import "../css/style.scss";
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
-	
-	gsap.registerPlugin(ScrollTrigger);
+
+  gsap.registerPlugin(ScrollTrigger);
 
   let iteration = 0; // gets iterated when we scroll all the way to the end or start and wraps around - allows us to smoothly continue the playhead scrubbing in the correct direction.
 
@@ -159,13 +187,13 @@ import "../css/style.scss";
       pin: ".gallery",
     }),
     // converts a progress value (0-1, but could go outside those bounds when wrapping) into a "safe" scroll value that's at least 1 away from the start or end because we reserve those for sensing when the user scrolls ALL the way up or down, to wrap.
-    progressToScroll = (progress:any) =>
+    progressToScroll = (progress: any) =>
       gsap.utils.clamp(
         1,
         trigger.end - 1,
         gsap.utils.wrap(0, 1, progress) * trigger.end
       ),
-    wrap = (iterationDelta:any, scrollTo:any) => {
+    wrap = (iterationDelta: any, scrollTo: any) => {
       iteration += iterationDelta;
       trigger.scroll(scrollTo);
       trigger.update(); // by default, when we trigger.scroll(), it waits 1 tick to update().
@@ -177,7 +205,7 @@ import "../css/style.scss";
   );
 
   // feed in an offset (like a time on the seamlessLoop timeline, but it can exceed 0 and duration() in either direction; it'll wrap) and it'll set the scroll position accordingly. That'll call the onUpdate() on the trigger if there's a change.
-  function scrollToOffset(offset:any) {
+  function scrollToOffset(offset: any) {
     // moves the scroll playhead to the place that corresponds to the totalTime value of the seamlessLoop, and wraps if necessary.
     let snappedTime = snapTime(offset),
       progress =
@@ -201,7 +229,7 @@ import "../css/style.scss";
       scrollToOffset(scrub.vars.offset - spacing)
     );
 
-  function buildSeamlessLoop(items:any, spacing:any, animateFunc:any) {
+  function buildSeamlessLoop(items: any, spacing: any, animateFunc: any) {
     let rawSequence = gsap.timeline({ paused: true }), // this is where all the "real" animations live
       seamlessLoop = gsap.timeline({
         // this merely scrubs the playhead of the rawSequence so that it appears to seamlessly loop
