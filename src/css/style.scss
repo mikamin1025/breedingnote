@@ -60,12 +60,15 @@ body {
 
   & .content {
     width: 90%;
-    margin: 15px auto 0;
+    margin: 30px auto 0;
     // background-color: pink;
+      text-align: center;
+
 
     & .content__date {
       font-family: 'Orbitron', sans-serif;
       font-size: 1.5rem;
+      text-align: left;
     }
 
     & .content__title {
@@ -74,8 +77,8 @@ body {
     }
 
     & .content__sumbneil {
-      width: 100%;
-      max-height: 50vh;
+      max-width: 100%;
+      max-height: 40vh;
       margin-top: 10px;
       filter: drop-shadow(1px 1px 3px #aaa);
       border-radius: 10px;
@@ -86,6 +89,7 @@ body {
       margin-top: 10px;
       line-height: 1.2rem;
       font-size: 0.8rem;
+      text-align: left;
     }
   }
 }
