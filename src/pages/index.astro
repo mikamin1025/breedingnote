@@ -6,7 +6,7 @@ import "../css/style.scss";
 
 //microCMS呼び出し
 import { getContents } from "../libs/microcms";
-const contents = await getContents({orders: 'date'});
+const contents = await getContents({limit: 100, orders: 'date'});
 
 ---
 
