@@ -1,8 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
 import "../css/reset.css";
 import "../css/style.scss";
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 //microCMS呼び出し
 import { getContents } from "../libs/microcms";
@@ -21,7 +26,7 @@ const contents = await getContents({limit: 100, orders: 'date'});
           contents.contents.map((content:any) => (
             <li>
               <div class="content">
-                <p class="content__date">{content.date.substring(0, 10)}</p>
+                <p class="content__date">{dayjs.utc(content.date).tz('Asia/Tokyo').format('YYYY-MM-DD')}</p>
                 <h2 class="content__title">{content.title}</h2>
                 <img
                   class="content__sumbneil"
@@ -47,8 +52,6 @@ const contents = await getContents({limit: 100, orders: 'date'});
             </p>
           </div>
         </li>-->
-        
-        
       </ul>
       <div class="actions">
         <button class="prev">Prev</button>
